@@ -1,0 +1,4 @@
+made the first level - bridge riddle - and made start view
+
+ -there's only one event which is crossing the bridge either with one or two runners so didn't need to make event type class
+ -runners cannot fire events because there's a case where you have to choose two runners 
