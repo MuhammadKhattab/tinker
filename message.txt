@@ -1,4 +1,5 @@
-made the first level - bridge riddle - and made start view
+created more events
 
- -there's only one event which is crossing the bridge either with one or two runners so didn't need to make event type class
- -runners cannot fire events because there's a case where you have to choose two runners 
+events:
+  - changed bridge event constructors because of null source exception
+  - new class bridge event type because this way is easier when tracking flow

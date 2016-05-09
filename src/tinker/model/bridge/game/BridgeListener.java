@@ -2,8 +2,8 @@ package tinker.model.bridge.game;
 
 import java.util.EventListener;
 
-public interface BridgeListener extends EventListener{
+public interface BridgeListener extends EventListener {
 
-	void onCrossing(CrossingEvent e);
-	
+	void onBridgeEvent(BridgeEvent e);
+
 }

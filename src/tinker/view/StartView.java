@@ -26,7 +26,7 @@ public class StartView extends JFrame {
 		startGame.setName("start");
 		startGame.setIcon(new ImageIcon("resources/images/start.png"));
 		startGame.setFont(new Font("ariel", Font.BOLD, 40));
-		startGame.setForeground(new Color(0, 26, 51));
+		startGame.setForeground(new Color(51, 51, 51));
 
 		pan = new JPanel();
 		pan.setLayout(new GridLayout(4, 0));

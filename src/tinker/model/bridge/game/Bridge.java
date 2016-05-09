@@ -4,6 +4,11 @@ import tinker.model.bridge.character.*;
 
 public class Bridge {
 
+	// TODO
+	// handle invalid moves:
+	// - choose same runner
+	// - one must always go back
+
 	private int AVAILABLE_TIME = 17;
 	private int passedTime;
 
@@ -21,41 +26,24 @@ public class Bridge {
 		athlete = new Athlete();
 	}
 
-	public void check() {
+	public void ended(Runner slow, Runner fast) {
 		if (passedTime > AVAILABLE_TIME)
-			lost();
-		if (passedTime == AVAILABLE_TIME && !allCrossed())
-			lost();
-		if (passedTime == AVAILABLE_TIME && allCrossed())
-			won();
+			notifyOnBridgeEvent(new BridgeEvent(slow, fast, BridgeEventType.LOST));
+		else if (passedTime == AVAILABLE_TIME && !allCrossed())
+			notifyOnBridgeEvent(new BridgeEvent(slow, fast, BridgeEventType.LOST));
+		else if (passedTime == AVAILABLE_TIME && allCrossed())
+			notifyOnBridgeEvent(new BridgeEvent(slow, fast, BridgeEventType.WON));
+		else
+			notifyOnBridgeEvent(new BridgeEvent(slow, fast, BridgeEventType.CROSS));
 	}
 
-	private void won() {
-		System.out.println("WON!");
-	}
-
-	private void lost() {
-		System.out.println("LOST!");
+	public void notifyOnBridgeEvent(BridgeEvent e) {
+		if (listener != null)
+			listener.onBridgeEvent(e);
 	}
 
 	public boolean allCrossed() {
 		return normal.isCrossed() && flash.isCrossed() && turtle.isCrossed() && athlete.isCrossed();
-	}
-
-	public Flash getFlash() {
-		return flash;
-	}
-
-	public Normal getNormal() {
-		return normal;
-	}
-
-	public Turtle getTurtle() {
-		return turtle;
-	}
-
-	public Athlete getAthlete() {
-		return athlete;
 	}
 
 	public int getAVAILABLE_TIME() {
@@ -63,36 +51,24 @@ public class Bridge {
 	}
 
 	public void cross(Runner slow, Runner fast) {
-		slow.cross();
-		if (fast != null)
-			fast.cross();
-
-		passedTime += slow.getTime();
-		check();
-
-		notifyOnCrossing(new CrossingEvent(slow, fast));
-	}
-
-	public void notifyOnCrossing(CrossingEvent e) {
-		if (listener != null)
-			listener.onCrossing(e);
+		if (slow != null) {
+			slow.cross();
+			passedTime += slow.getTime();
+			if (fast != null)
+				fast.cross();
+			ended(slow, fast);
+		}
 	}
 
 	public String toString() {
 		return String.format("%s\n%s\n%s\n%s", flash, athlete, normal, turtle);
 	}
 
-	private void win() {
-		cross(athlete, flash);
-		cross(flash, null);
-		cross(turtle, normal);
-		cross(athlete, null);
-		cross(athlete, flash);
+	public void setListener(BridgeListener listener) {
+		this.listener = listener;
 	}
 
-	public static void main(String[] args) {
-		Bridge b = new Bridge();
-		b.win();
+	public int getPassedTime() {
+		return passedTime;
 	}
-
 }
