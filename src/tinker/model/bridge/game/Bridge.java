@@ -1,16 +1,14 @@
 package tinker.model.bridge.game;
 
+import javax.swing.JOptionPane;
+
 import tinker.model.bridge.character.*;
 
 public class Bridge {
 
-	// TODO
-	// handle invalid moves:
-	// - choose same runner
-	// - one must always go back
-
 	private int AVAILABLE_TIME = 17;
 	private int passedTime;
+	private boolean fire;
 
 	private Flash flash;
 	private Normal normal;
@@ -24,6 +22,30 @@ public class Bridge {
 		flash = new Flash();
 		turtle = new Turtle();
 		athlete = new Athlete();
+	}
+
+	public boolean isFire() {
+		return fire;
+	}
+
+	public Flash getFlash() {
+		return flash;
+	}
+
+	public Normal getNormal() {
+		return normal;
+	}
+
+	public Turtle getTurtle() {
+		return turtle;
+	}
+
+	public Athlete getAthlete() {
+		return athlete;
+	}
+
+	public BridgeListener getListener() {
+		return listener;
 	}
 
 	public void ended(Runner slow, Runner fast) {
@@ -52,12 +74,24 @@ public class Bridge {
 
 	public void cross(Runner slow, Runner fast) {
 		if (slow != null) {
-			slow.cross();
-			passedTime += slow.getTime();
-			if (fast != null)
-				fast.cross();
-			ended(slow, fast);
-		}
+			if (fire == slow.isCrossed()) {
+				if (fast != null && fire == fast.isCrossed()) {
+					slow.cross();
+					passedTime += slow.getTime();
+					fast.cross();
+					fire = !fire;
+					ended(slow, fast);
+				} else if (fast == null) {
+					slow.cross();
+					passedTime += slow.getTime();
+					fire = !fire;
+					ended(slow, null);
+				} else
+					JOptionPane.showMessageDialog(null, "can't do this");
+			} else 
+				JOptionPane.showMessageDialog(null, "return with someone");
+		} else
+			JOptionPane.showMessageDialog(null, "choose someone");
 	}
 
 	public String toString() {

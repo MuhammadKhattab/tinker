@@ -47,32 +47,37 @@ public class Controller implements MouseListener, BridgeListener {
 		} else if (e.getSource() instanceof JButton) {
 			if (((JButton) e.getSource()).getName().equals("cross")) {
 				bridgeView.getBridge().cross(slow, fast);
-				slow = null;
-				fast = null;
 			} else if (((JButton) e.getSource()).getName().equals("flash")) {
-				addRunner(new Flash());
+				addRunner(bridgeView.getBridge().getFlash());
 			} else if (((JButton) e.getSource()).getName().equals("turtle")) {
-				addRunner(new Turtle());
+				addRunner(bridgeView.getBridge().getTurtle());
 			} else if (((JButton) e.getSource()).getName().equals("athlete")) {
-				addRunner(new Athlete());
+				addRunner(bridgeView.getBridge().getAthlete());
 			} else if (((JButton) e.getSource()).getName().equals("normal")) {
-				addRunner(new Normal());
+				addRunner(bridgeView.getBridge().getNormal());
 			}
 		}
 
 	}
 
 	private void addRunner(Runner runner) {
+		//TODO
+		// change approach
 		if (slow == null)
 			slow = runner;
-		else if (slow.getTime() > runner.getTime())
-			fast = runner;
-		else {
-			Runner tmp = slow;
-			slow = runner;
-			fast = tmp;
-		}
-
+		else if (slow.isCrossed() == runner.isCrossed()) {
+			if (slow.getTime() > runner.getTime())
+				fast = runner;
+			else {
+				Runner tmp = slow;
+				slow = runner;
+				fast = tmp;
+			}
+		} else
+			;
+		// TODO
+		// not same side
+		
 	}
 
 	@Override

@@ -1,5 +1,12 @@
-created more events
+handled invalid moves
 
-events:
-  - changed bridge event constructors because of null source exception
-  - new class bridge event type because this way is easier when tracking flow
+used a flag to make sure someone would go back to avoid cases like cross with 2
+then cross with the other 2
+(not finished)
+
+a check if 2 instances of the same person are crossing because it will give
+wrong view
+(not finished)
+
+2 runner must be on the same side
+(not finished)
