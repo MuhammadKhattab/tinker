@@ -1,10 +1,19 @@
 package tinker.view.bridge;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
-import tinker.model.bridge.game.*;
+import tinker.model.bridge.character.Flash;
+import tinker.model.bridge.character.Runner;
+import tinker.model.bridge.game.Bridge;
+import tinker.model.bridge.game.BridgeEvent;
 import tinker.view.WindowDestroyer;
 
 @SuppressWarnings("serial")
@@ -146,9 +155,16 @@ public class BridgeView extends JFrame {
 	}
 
 	public void cross(BridgeEvent e) {
-		// Runner slow = ((Runner) e.getSource());
-		// Runner fast = e.getFast();
-		// TODO
+		Runner slow = ((Runner) e.getSource());
+		who(slow);
+		Runner fast = e.getFast();
+		who(fast);
+	}
+	
+	public void who(Runner runner) {
+		if(runner instanceof Flash) {
+			
+		}
 	}
 
 	public void won() {

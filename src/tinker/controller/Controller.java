@@ -16,9 +16,6 @@ public class Controller implements MouseListener, BridgeListener {
 	private StartView startView;
 	private BridgeView bridgeView;
 
-	private Runner slow;
-	private Runner fast;
-
 	public Controller() {
 		startView = new StartView();
 		startView.getStartGame().addMouseListener(this);
@@ -46,7 +43,7 @@ public class Controller implements MouseListener, BridgeListener {
 			}
 		} else if (e.getSource() instanceof JButton) {
 			if (((JButton) e.getSource()).getName().equals("cross")) {
-				bridgeView.getBridge().cross(slow, fast);
+				bridgeView.getBridge().cross();
 			} else if (((JButton) e.getSource()).getName().equals("flash")) {
 				addRunner(bridgeView.getBridge().getFlash());
 			} else if (((JButton) e.getSource()).getName().equals("turtle")) {
@@ -61,23 +58,7 @@ public class Controller implements MouseListener, BridgeListener {
 	}
 
 	private void addRunner(Runner runner) {
-		//TODO
-		// change approach
-		if (slow == null)
-			slow = runner;
-		else if (slow.isCrossed() == runner.isCrossed()) {
-			if (slow.getTime() > runner.getTime())
-				fast = runner;
-			else {
-				Runner tmp = slow;
-				slow = runner;
-				fast = tmp;
-			}
-		} else
-			;
-		// TODO
-		// not same side
-		
+		bridgeView.getBridge().addRunner(runner);
 	}
 
 	@Override

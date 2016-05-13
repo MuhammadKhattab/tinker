@@ -15,6 +15,9 @@ public class Bridge {
 	private Turtle turtle;
 	private Athlete athlete;
 
+	private Runner slow;
+	private Runner fast;
+
 	private BridgeListener listener;
 
 	public Bridge() {
@@ -22,6 +25,33 @@ public class Bridge {
 		flash = new Flash();
 		turtle = new Turtle();
 		athlete = new Athlete();
+	}
+
+	public void setSlow(Runner slow) {
+		this.slow = slow;
+	}
+
+	public void setFast(Runner fast) {
+		this.fast = fast;
+	}
+
+	public void clear() {
+		slow = fast = null;
+	}
+
+	public void addRunner(Runner runner) {
+		if (slow == null)
+			slow = runner;
+		else if (slow.isCrossed() == runner.isCrossed()) {
+			if (slow.getTime() > runner.getTime())
+				fast = runner;
+			else {
+				Runner tmp = slow;
+				slow = runner;
+				fast = tmp;
+			}
+		} else
+			clear();
 	}
 
 	public boolean isFire() {
@@ -72,7 +102,7 @@ public class Bridge {
 		return AVAILABLE_TIME;
 	}
 
-	public void cross(Runner slow, Runner fast) {
+	public void cross() {
 		if (slow != null) {
 			if (fire == slow.isCrossed()) {
 				if (fast != null && fire == fast.isCrossed()) {
@@ -88,10 +118,11 @@ public class Bridge {
 					ended(slow, null);
 				} else
 					JOptionPane.showMessageDialog(null, "can't do this");
-			} else 
-				JOptionPane.showMessageDialog(null, "return with someone");
+			} else
+				JOptionPane.showMessageDialog(null, "return with someone to bring others");
 		} else
-			JOptionPane.showMessageDialog(null, "choose someone");
+			JOptionPane.showMessageDialog(null, "choose someone to cross");
+		clear();
 	}
 
 	public String toString() {
