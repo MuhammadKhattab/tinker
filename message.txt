@@ -1,1 +1,1 @@
-fixed crossing, invalid moves
+icons for characters
