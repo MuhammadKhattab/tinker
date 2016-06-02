@@ -21,8 +21,8 @@ public class BridgeController implements MouseListener, BridgeListener {
 		bridgeView.getBridge().setListener(this);
 
 		bridgeView.getFlash().addMouseListener(this);
-		bridgeView.getAthlete().addMouseListener(this);
-		bridgeView.getNormal().addMouseListener(this);
+		bridgeView.getRabbit().addMouseListener(this);
+		bridgeView.getSleepy().addMouseListener(this);
 		bridgeView.getTurtle().addMouseListener(this);
 		bridgeView.getCross().addMouseListener(this);
 		bridgeView.getBack().addMouseListener(this);
@@ -37,10 +37,10 @@ public class BridgeController implements MouseListener, BridgeListener {
 				addRunner(bridgeView.getBridge().getFlash());
 			} else if (((JButton) e.getSource()).getName().equals("turtle")) {
 				addRunner(bridgeView.getBridge().getTurtle());
-			} else if (((JButton) e.getSource()).getName().equals("athlete")) {
-				addRunner(bridgeView.getBridge().getAthlete());
-			} else if (((JButton) e.getSource()).getName().equals("normal")) {
-				addRunner(bridgeView.getBridge().getNormal());
+			} else if (((JButton) e.getSource()).getName().equals("rabbit")) {
+				addRunner(bridgeView.getBridge().getRabbit());
+			} else if (((JButton) e.getSource()).getName().equals("sleepy")) {
+				addRunner(bridgeView.getBridge().getSleepy());
 			} else if (((JButton) e.getSource()).getName().equals("back")) {
 				back();
 			}

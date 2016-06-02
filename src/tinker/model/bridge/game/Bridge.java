@@ -11,9 +11,9 @@ public class Bridge {
 	private boolean fire;
 
 	private Flash flash;
-	private Normal normal;
+	private Sleepy sleepy;
 	private Turtle turtle;
-	private Athlete athlete;
+	private Rabbit rabbit;
 
 	private Runner slow;
 	private Runner fast;
@@ -21,10 +21,10 @@ public class Bridge {
 	private BridgeListener listener;
 
 	public Bridge() {
-		normal = new Normal();
+		sleepy = new Sleepy();
 		flash = new Flash();
 		turtle = new Turtle();
-		athlete = new Athlete();
+		rabbit = new Rabbit();
 	}
 
 	public void setSlow(Runner slow) {
@@ -62,16 +62,8 @@ public class Bridge {
 		return flash;
 	}
 
-	public Normal getNormal() {
-		return normal;
-	}
-
 	public Turtle getTurtle() {
 		return turtle;
-	}
-
-	public Athlete getAthlete() {
-		return athlete;
 	}
 
 	public BridgeListener getListener() {
@@ -95,7 +87,7 @@ public class Bridge {
 	}
 
 	public boolean allCrossed() {
-		return normal.isCrossed() && flash.isCrossed() && turtle.isCrossed() && athlete.isCrossed();
+		return sleepy.isCrossed() && flash.isCrossed() && turtle.isCrossed() && rabbit.isCrossed();
 	}
 
 	public int getAVAILABLE_TIME() {
@@ -126,7 +118,7 @@ public class Bridge {
 	}
 
 	public String toString() {
-		return String.format("%s\n%s\n%s\n%s", flash, athlete, normal, turtle);
+		return String.format("%s\n%s\n%s\n%s", flash, rabbit, sleepy, turtle);
 	}
 
 	public void setListener(BridgeListener listener) {
@@ -136,4 +128,13 @@ public class Bridge {
 	public int getPassedTime() {
 		return passedTime;
 	}
+
+	public Sleepy getSleepy() {
+		return sleepy;
+	}
+
+	public Rabbit getRabbit() {
+		return rabbit;
+	}
+
 }

@@ -1,8 +1,8 @@
 package tinker.model.bridge.character;
 
-public class Athlete extends Runner{
+public class Rabbit extends Runner{
 
-	public Athlete() {
+	public Rabbit() {
 		super(2);
 	}
 

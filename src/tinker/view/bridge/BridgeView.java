@@ -11,9 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import tinker.model.bridge.character.Athlete;
+import tinker.model.bridge.character.Rabbit;
 import tinker.model.bridge.character.Flash;
-import tinker.model.bridge.character.Normal;
+import tinker.model.bridge.character.Sleepy;
 import tinker.model.bridge.character.Runner;
 import tinker.model.bridge.character.Turtle;
 import tinker.model.bridge.game.Bridge;
@@ -26,8 +26,8 @@ public class BridgeView extends JFrame {
 	private Bridge bridge;
 
 	private JButton flash;
-	private JButton athlete;
-	private JButton normal;
+	private JButton rabbit;
+	private JButton sleepy;
 	private JButton turtle;
 	private JButton cross;
 	private JButton back;
@@ -38,18 +38,18 @@ public class BridgeView extends JFrame {
 	private JPanel zombie;
 
 	private JLabel flashSafe;
-	private JLabel normalSafe;
+	private JLabel sleepySafe;
 	private JLabel turtleSafe;
-	private JLabel athleteSafe;
+	private JLabel rabbitSafe;
 
 	private JLabel passedTime;
 	private JLabel safeSide;
 	private JLabel zombieSide;
 
 	private JLabel flashZombie;
-	private JLabel athleteZombie;
+	private JLabel rabbitZombie;
 	private JLabel turtleZombie;
-	private JLabel normalZombie;
+	private JLabel sleepyZombie;
 
 	public BridgeView() {
 		super("Tinker");
@@ -70,17 +70,17 @@ public class BridgeView extends JFrame {
 		flash.setForeground(buttonsfg);
 		flash.setIcon(new ImageIcon("resources/images/bridge/flash.png"));
 
-		athlete = new JButton("2 mins to cross");
-		athlete.setName("athlete");
-		athlete.setBackground(buttonsbg);
-		athlete.setForeground(buttonsfg);
-		athlete.setIcon(new ImageIcon("resources/images/bridge/athlete.png"));
+		rabbit = new JButton("2 mins to cross");
+		rabbit.setName("rabbit");
+		rabbit.setBackground(buttonsbg);
+		rabbit.setForeground(buttonsfg);
+		rabbit.setIcon(new ImageIcon("resources/images/bridge/rabbit.png"));
 
-		normal = new JButton("5 mins to cross");
-		normal.setName("normal");
-		normal.setBackground(buttonsbg);
-		normal.setForeground(buttonsfg);
-		normal.setIcon(new ImageIcon("resources/images/bridge/normal.png"));
+		sleepy = new JButton("5 mins to cross");
+		sleepy.setName("sleepy");
+		sleepy.setBackground(buttonsbg);
+		sleepy.setForeground(buttonsfg);
+		sleepy.setIcon(new ImageIcon("resources/images/bridge/sleepy.png"));
 
 		turtle = new JButton("10 mins to cross");
 		turtle.setName("turtle");
@@ -102,15 +102,15 @@ public class BridgeView extends JFrame {
 		buttons.setBackground(new Color(25, 51, 77));
 
 		buttons.add(flash);
-		buttons.add(athlete);
-		buttons.add(normal);
+		buttons.add(rabbit);
+		buttons.add(sleepy);
 		buttons.add(turtle);
 		buttons.add(cross);
 		buttons.add(back);
 
-		normalSafe = new JLabel();
+		sleepySafe = new JLabel();
 
-		athleteSafe = new JLabel();
+		rabbitSafe = new JLabel();
 
 		turtleSafe = new JLabel();
 
@@ -124,16 +124,16 @@ public class BridgeView extends JFrame {
 
 		safe.add(safeSide);
 		safe.add(flashSafe);
-		safe.add(athleteSafe);
-		safe.add(normalSafe);
+		safe.add(rabbitSafe);
+		safe.add(sleepySafe);
 		safe.add(turtleSafe);
 
 		zombie = new JPanel(new GridLayout(5, 0));
 		zombie.setBackground(worldbg);
 
-		normalZombie = new JLabel(new ImageIcon("resources/images/bridge/normal.png"));
+		sleepyZombie = new JLabel(new ImageIcon("resources/images/bridge/sleepy.png"));
 
-		athleteZombie = new JLabel(new ImageIcon("resources/images/bridge/athlete.png"));
+		rabbitZombie = new JLabel(new ImageIcon("resources/images/bridge/rabbit.png"));
 
 		turtleZombie = new JLabel(new ImageIcon("resources/images/bridge/turtle.png"));
 
@@ -145,8 +145,8 @@ public class BridgeView extends JFrame {
 		
 		zombie.add(zombieSide);
 		zombie.add(flashZombie);
-		zombie.add(athleteZombie);
-		zombie.add(normalZombie);
+		zombie.add(rabbitZombie);
+		zombie.add(sleepyZombie);
 		zombie.add(turtleZombie);
 
 		world = new JPanel(new BorderLayout());
@@ -181,12 +181,12 @@ public class BridgeView extends JFrame {
 		return flash;
 	}
 
-	public JButton getAthlete() {
-		return athlete;
+	public JButton getRabbit() {
+		return rabbit;
 	}
 
-	public JButton getNormal() {
-		return normal;
+	public JButton getSleepy() {
+		return sleepy;
 	}
 
 	public JButton getTurtle() {
@@ -210,21 +210,21 @@ public class BridgeView extends JFrame {
 				turtleSafe.setIcon(null);
 				turtleZombie.setIcon(new ImageIcon("resources/images/bridge/turtle.png"));
 			}
-		else if (runner instanceof Athlete)
+		else if (runner instanceof Rabbit)
 			if (bridge.isFire()) {
-				athleteZombie.setIcon(null);
-				athleteSafe.setIcon(new ImageIcon("resources/images/bridge/athlete.png"));
+				rabbitZombie.setIcon(null);
+				rabbitSafe.setIcon(new ImageIcon("resources/images/bridge/rabbit.png"));
 			} else {
-				athleteSafe.setIcon(null);
-				athleteZombie.setIcon(new ImageIcon("resources/images/bridge/athlete.png"));
+				rabbitSafe.setIcon(null);
+				rabbitZombie.setIcon(new ImageIcon("resources/images/bridge/rabbit.png"));
 			}
-		else if (runner instanceof Normal)
+		else if (runner instanceof Sleepy)
 			if (bridge.isFire()) {
-				normalZombie.setIcon(null);
-				normalSafe.setIcon(new ImageIcon("resources/images/bridge/normal.png"));
+				sleepyZombie.setIcon(null);
+				sleepySafe.setIcon(new ImageIcon("resources/images/bridge/sleepy.png"));
 			} else {
-				normalSafe.setIcon(null);
-				normalZombie.setIcon(new ImageIcon("resources/images/bridge/normal.png"));
+				sleepySafe.setIcon(null);
+				sleepyZombie.setIcon(new ImageIcon("resources/images/bridge/sleepy.png"));
 			}
 		if (bridge.isFire()) {
 			zombieSide.setIcon(null);

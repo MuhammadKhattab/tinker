@@ -1,8 +1,8 @@
 package tinker.model.bridge.character;
 
-public class Normal extends Runner{
+public class Sleepy extends Runner{
 
-	public Normal() {
+	public Sleepy() {
 		super(5);
 	}
 
