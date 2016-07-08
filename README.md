@@ -1,2 +1,2 @@
 # tinker
-A simple game.
+Simple mini puzzles.
