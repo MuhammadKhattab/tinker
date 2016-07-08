@@ -33,6 +33,7 @@ public class BridgeController implements MouseListener, BridgeListener {
 		if (e.getSource() instanceof JButton) {
 			if (((JButton) e.getSource()).getName().equals("cross")) {
 				bridgeView.getBridge().cross();
+				bridgeView.clearChosen();
 			} else if (((JButton) e.getSource()).getName().equals("flash")) {
 				addRunner(bridgeView.getBridge().getFlash());
 			} else if (((JButton) e.getSource()).getName().equals("turtle")) {
@@ -55,6 +56,7 @@ public class BridgeController implements MouseListener, BridgeListener {
 
 	private void addRunner(Runner runner) {
 		bridgeView.getBridge().addRunner(runner);
+		bridgeView.chose();
 	}
 
 	@Override

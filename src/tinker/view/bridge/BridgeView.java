@@ -36,6 +36,7 @@ public class BridgeView extends JFrame {
 	private JPanel world;
 	private JPanel safe;
 	private JPanel zombie;
+	private JPanel upper;
 
 	private JLabel flashSafe;
 	private JLabel sleepySafe;
@@ -43,6 +44,9 @@ public class BridgeView extends JFrame {
 	private JLabel rabbitSafe;
 
 	private JLabel passedTime;
+	private JLabel chosen1Icon;
+	private JLabel chosen2Icon;
+
 	private JLabel safeSide;
 	private JLabel zombieSide;
 
@@ -142,7 +146,7 @@ public class BridgeView extends JFrame {
 		zombieSide = new JLabel("Danger Side");
 		zombieSide.setIcon(new ImageIcon("resources/images/bridge/light.png"));
 		zombieSide.setForeground(buttonsfg);
-		
+
 		zombie.add(zombieSide);
 		zombie.add(flashZombie);
 		zombie.add(rabbitZombie);
@@ -151,11 +155,24 @@ public class BridgeView extends JFrame {
 
 		world = new JPanel(new BorderLayout());
 		world.setBackground(worldbg);
-		
+
 		passedTime = new JLabel("Passed Time: 0/17");
 		passedTime.setForeground(buttonsfg);
 
-		world.add(passedTime, BorderLayout.NORTH);
+		chosen1Icon = new JLabel("Chosen #1");
+		chosen1Icon.setForeground(buttonsfg);
+
+		chosen2Icon = new JLabel("Chosen #2");
+		chosen2Icon.setForeground(buttonsfg);
+
+		upper = new JPanel(new GridLayout(0, 3));
+		upper.setBackground(worldbg);
+
+		upper.add(passedTime);
+		upper.add(chosen1Icon);
+		upper.add(chosen2Icon);
+
+		world.add(upper, BorderLayout.NORTH);
 		world.add(safe, BorderLayout.EAST);
 		world.add(zombie, BorderLayout.WEST);
 
@@ -253,6 +270,34 @@ public class BridgeView extends JFrame {
 
 	public JButton getBack() {
 		return back;
+	}
+
+	public void chose() {
+		if (bridge.getFast() == null) {
+			chosen1Icon.setIcon(new ImageIcon("resources/images/bridge/" + getRunnerIcon(bridge.getSlow())));
+			chosen2Icon.setIcon(null);
+		} else {
+			chosen1Icon.setIcon(new ImageIcon("resources/images/bridge/" + getRunnerIcon(bridge.getSlow())));
+			chosen2Icon.setIcon(new ImageIcon("resources/images/bridge/" + getRunnerIcon(bridge.getFast())));
+		}
+
+	}
+
+	public String getRunnerIcon(Runner runner) {
+		if (runner instanceof Flash)
+			return "flash.png";
+		if (runner instanceof Turtle)
+			return "turtle.png";
+		if (runner instanceof Sleepy)
+			return "sleepy.png";
+		if (runner instanceof Rabbit)
+			return "rabbit.png";
+		return "";
+	}
+
+	public void clearChosen() {
+		chosen1Icon.setIcon(null);
+		chosen2Icon.setIcon(null);
 	}
 
 }

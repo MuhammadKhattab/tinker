@@ -36,13 +36,15 @@ public class Bridge {
 	}
 
 	public void clear() {
-		slow = fast = null;
+		slow = null;
+		fast = null;
 	}
 
 	public void addRunner(Runner runner) {
-		if (slow == null)
+		if (slow == null) {
 			slow = runner;
-		else if (slow.isCrossed() == runner.isCrossed()) {
+		}
+		else if (slow.isCrossed() == runner.isCrossed() && slow.getClass() != runner.getClass()) {
 			if (slow.getTime() > runner.getTime())
 				fast = runner;
 			else {
@@ -50,8 +52,10 @@ public class Bridge {
 				slow = runner;
 				fast = tmp;
 			}
-		} else
+			
+		} else {
 			clear();
+		}
 	}
 
 	public boolean isFire() {
@@ -117,10 +121,6 @@ public class Bridge {
 		clear();
 	}
 
-	public String toString() {
-		return String.format("%s\n%s\n%s\n%s", flash, rabbit, sleepy, turtle);
-	}
-
 	public void setListener(BridgeListener listener) {
 		this.listener = listener;
 	}
@@ -135,6 +135,14 @@ public class Bridge {
 
 	public Rabbit getRabbit() {
 		return rabbit;
+	}
+	
+	public Runner getSlow() {
+		return slow;
+	}
+	
+	public Runner getFast() {
+		return fast;
 	}
 
 }
