@@ -1,6 +1,5 @@
 package tinker.model.fish;
 
-import java.sql.Array;
 import java.util.ArrayList;
 
 import tinker.model.fish.clues.Cigar;
@@ -188,12 +187,6 @@ public class Game {
 		add(cigars, chosen_cigars, clue, 3);
 		clue = new Cigar("BlueMaster");
 		add(cigars, chosen_cigars, clue, 4);
-	}
-
-	public static void main(String[] args) {
-		Game g = new Game();
-		g.solve();
-		System.out.println(g.isCorrect());
 	}
 
 }

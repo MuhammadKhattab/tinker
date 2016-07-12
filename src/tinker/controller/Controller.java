@@ -13,7 +13,8 @@ public class Controller implements MouseListener {
 
 	public Controller() {
 		startView = new StartView();
-		startView.getStartGame().addMouseListener(this);
+		startView.getBridge().addMouseListener(this);
+		startView.getFish().addMouseListener(this);
 	}
 
 	@Override
@@ -21,6 +22,12 @@ public class Controller implements MouseListener {
 		if (((JLabel) e.getSource()).getName().equals("bridge")) {
 			new BridgeController();
 			startView.dispose();
+		} else {
+			if (((JLabel) e.getSource()).getName().equals("fish")) {
+				new FishController();
+				startView.dispose();
+			}
+
 		}
 	}
 
