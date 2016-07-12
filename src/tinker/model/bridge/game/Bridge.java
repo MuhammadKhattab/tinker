@@ -36,15 +36,13 @@ public class Bridge {
 	}
 
 	public void clear() {
-		slow = null;
-		fast = null;
+		slow = fast = null;
 	}
 
 	public void addRunner(Runner runner) {
 		if (slow == null) {
 			slow = runner;
-		}
-		else if (slow.isCrossed() == runner.isCrossed() && slow.getClass() != runner.getClass()) {
+		} else if (slow.isCrossed() == runner.isCrossed() && slow.getClass() != runner.getClass()) {
 			if (slow.getTime() > runner.getTime())
 				fast = runner;
 			else {
@@ -52,7 +50,7 @@ public class Bridge {
 				slow = runner;
 				fast = tmp;
 			}
-			
+
 		} else {
 			clear();
 		}
@@ -136,13 +134,40 @@ public class Bridge {
 	public Rabbit getRabbit() {
 		return rabbit;
 	}
-	
+
 	public Runner getSlow() {
 		return slow;
 	}
-	
+
 	public Runner getFast() {
 		return fast;
+	}
+
+	public void solve() {
+
+		JOptionPane.showMessageDialog(null, "Cross with fast characters first");
+		addRunner(rabbit);
+		addRunner(flash);
+		cross();
+
+		JOptionPane.showMessageDialog(null, "Go back with one of them");
+		addRunner(flash);
+		cross();
+
+		JOptionPane.showMessageDialog(null, "Cross with slow characters");
+		addRunner(turtle);
+		addRunner(sleepy);
+		cross();
+
+		JOptionPane.showMessageDialog(null, "Go back with the fastest to get the remaining character");
+		addRunner(rabbit);
+		cross();
+
+		JOptionPane.showMessageDialog(null, "Run for your life!");
+		addRunner(rabbit);
+		addRunner(flash);
+		cross();
+
 	}
 
 }

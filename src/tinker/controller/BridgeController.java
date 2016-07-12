@@ -26,6 +26,7 @@ public class BridgeController implements MouseListener, BridgeListener {
 		bridgeView.getTurtle().addMouseListener(this);
 		bridgeView.getCross().addMouseListener(this);
 		bridgeView.getBack().addMouseListener(this);
+		bridgeView.getSolve().addMouseListener(this);
 	}
 
 	@Override
@@ -44,6 +45,8 @@ public class BridgeController implements MouseListener, BridgeListener {
 				addRunner(bridgeView.getBridge().getSleepy());
 			} else if (((JButton) e.getSource()).getName().equals("back")) {
 				back();
+			} else if (((JButton) e.getSource()).getName().equals("solve")) {
+				bridgeView.getBridge().solve();
 			}
 		}
 

@@ -31,6 +31,8 @@ public class BridgeView extends JFrame {
 	private JButton turtle;
 	private JButton cross;
 	private JButton back;
+	private JButton solve;
+	
 
 	private JPanel buttons;
 	private JPanel world;
@@ -101,6 +103,11 @@ public class BridgeView extends JFrame {
 		back.setName("back");
 		back.setBackground(buttonsbg);
 		back.setForeground(buttonsfg);
+		
+		solve = new JButton("Solve it");
+		solve.setName("solve");
+		solve.setBackground(buttonsbg);
+		solve.setForeground(buttonsfg);
 
 		buttons = new JPanel(new GridLayout(0, 4));
 		buttons.setBackground(new Color(25, 51, 77));
@@ -110,6 +117,7 @@ public class BridgeView extends JFrame {
 		buttons.add(sleepy);
 		buttons.add(turtle);
 		buttons.add(cross);
+		buttons.add(solve);
 		buttons.add(back);
 
 		sleepySafe = new JLabel();
@@ -299,5 +307,8 @@ public class BridgeView extends JFrame {
 		chosen1Icon.setIcon(null);
 		chosen2Icon.setIcon(null);
 	}
-
+	
+	public JButton getSolve() {
+		return solve;
+	}
 }
