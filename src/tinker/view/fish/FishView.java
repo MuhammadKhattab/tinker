@@ -18,6 +18,7 @@ public class FishView extends JFrame {
 
 	private JButton back;
 	private JButton solve;
+	private JButton info;
 
 	private JPanel buttons;
 
@@ -32,7 +33,8 @@ public class FishView extends JFrame {
 		game = new Game();
 		Color buttonsbg = new Color(38, 77, 115);
 		Color buttonsfg = new Color(230, 255, 230);
-		// Color worldbg = new Color(25, 51, 77);
+		Color worldbg = new Color(25, 51, 77);
+		setBackground(worldbg);
 
 		back = new JButton("Back");
 		back.setName("back");
@@ -44,9 +46,15 @@ public class FishView extends JFrame {
 		solve.setBackground(buttonsbg);
 		solve.setForeground(buttonsfg);
 
+		info = new JButton("Available Information");
+		info.setName("info");
+		info.setBackground(buttonsbg);
+		info.setForeground(buttonsfg);
+
 		buttons = new JPanel(new GridLayout(0, 4));
 		buttons.setBackground(new Color(25, 51, 77));
 
+		buttons.add(info);
 		buttons.add(solve);
 		buttons.add(back);
 
@@ -65,5 +73,9 @@ public class FishView extends JFrame {
 
 	public Game getGame() {
 		return game;
+	}
+
+	public JButton getInfo() {
+		return info;
 	}
 }

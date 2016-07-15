@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 
 import tinker.view.fish.FishView;
+import tinker.view.fish.InformationView;
 
 public class FishController implements MouseListener {
 
@@ -16,6 +17,7 @@ public class FishController implements MouseListener {
 
 		fishView.getBack().addMouseListener(this);
 		fishView.getSolve().addMouseListener(this);
+		fishView.getInfo().addMouseListener(this);
 
 	}
 
@@ -26,7 +28,10 @@ public class FishController implements MouseListener {
 				back();
 			} else if (((JButton) e.getSource()).getName().equals("solve")) {
 				fishView.getGame().solve();
+			}else if (((JButton) e.getSource()).getName().equals("info")) {
+				new InformationView();
 			}
+			
 		}
 	}
 
