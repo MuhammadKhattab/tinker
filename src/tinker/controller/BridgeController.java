@@ -11,6 +11,7 @@ import tinker.model.bridge.game.BridgeEvent;
 import tinker.model.bridge.game.BridgeEventType;
 import tinker.model.bridge.game.BridgeListener;
 import tinker.view.bridge.BridgeView;
+import tinker.view.bridge.InformationView;
 
 public class BridgeController implements MouseListener, BridgeListener {
 
@@ -27,6 +28,7 @@ public class BridgeController implements MouseListener, BridgeListener {
 		bridgeView.getCross().addMouseListener(this);
 		bridgeView.getBack().addMouseListener(this);
 		bridgeView.getSolve().addMouseListener(this);
+		bridgeView.getInfo().addMouseListener(this);
 	}
 
 	@Override
@@ -47,6 +49,8 @@ public class BridgeController implements MouseListener, BridgeListener {
 				back();
 			} else if (((JButton) e.getSource()).getName().equals("solve")) {
 				bridgeView.getBridge().solve();
+			} else if (((JButton) e.getSource()).getName().equals("info")) {
+				new InformationView();
 			}
 		}
 

@@ -4,17 +4,18 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import tinker.view.WindowDestroyer;
 import tinker.view.fish.combo.CigarsComboBox;
 import tinker.view.fish.combo.ColorsComboBox;
 import tinker.view.fish.combo.DrinksComboBox;
 import tinker.view.fish.combo.NationalitiesComboBox;
 import tinker.view.fish.combo.PetsComboBox;
-import tinker.view.fish.mi.MiButton;
-import tinker.view.fish.mi.MiLabel;
+import tinker.view.mi.MiButton;
+import tinker.view.mi.MiLabel;
+import tinker.view.mi.WindowDestroyer;
 
 @SuppressWarnings("serial")
 public class FishView extends JFrame {
@@ -140,7 +141,7 @@ public class FishView extends JFrame {
 		table.add(cigars4);
 		cigars5 = new CigarsComboBox();
 		table.add(cigars5);
-		
+
 		table.setBackground(buttonsbg);
 
 		house1 = new MiButton("House #1");
@@ -160,12 +161,15 @@ public class FishView extends JFrame {
 
 		back = new MiButton("Back");
 		back.setName("back");
+		back.setIcon(new ImageIcon("resources/images/general/back.png"));
 
 		solve = new MiButton("Solve it");
 		solve.setName("solve");
+		solve.setIcon(new ImageIcon("resources/images/general/solve.png"));
 
 		info = new MiButton("Available Information");
 		info.setName("info");
+		info.setIcon(new ImageIcon("resources/images/general/info.png"));
 
 		buttons = new JPanel(new GridLayout(0, 5));
 		buttons.setBackground(new Color(25, 51, 77));
@@ -326,5 +330,4 @@ public class FishView extends JFrame {
 		return cigars5;
 	}
 
-	
 }

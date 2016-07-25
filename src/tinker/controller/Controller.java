@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
 
-import tinker.view.StartView;
+import tinker.view.mi.StartView;
 
 public class Controller implements MouseListener {
 	private StartView startView;

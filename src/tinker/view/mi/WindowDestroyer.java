@@ -1,4 +1,4 @@
-package tinker.view;
+package tinker.view.mi;
 
 import javax.swing.*;
 import java.awt.event.*;

@@ -2,7 +2,7 @@ package tinker.view.fish.combo;
 
 import javax.swing.JComboBox;
 
-import tinker.view.fish.mi.MiColors;
+import tinker.view.mi.MiColors;
 
 @SuppressWarnings("serial")
 public class CigarsComboBox extends JComboBox<String> {

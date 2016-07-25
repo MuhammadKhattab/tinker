@@ -1,4 +1,4 @@
-package tinker.view.fish.mi;
+package tinker.view.mi;
 
 import java.awt.Color;
 
