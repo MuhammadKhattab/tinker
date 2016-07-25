@@ -15,7 +15,7 @@ public class MiColors {
 	public MiColors() {
 		foreground = new Color(230, 255, 230);
 		background = new Color(38, 77, 115);
-		red = new Color(204, 0, 0);
+		red = new Color(255, 102, 102);
 		oil = new Color(153, 153, 102);
 		grey = new Color(77, 77, 77);
 		purple = new Color(102, 0, 51);

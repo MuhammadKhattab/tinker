@@ -27,7 +27,6 @@ public class Controller implements MouseListener {
 				new FishController();
 				startView.dispose();
 			}
-
 		}
 	}
 

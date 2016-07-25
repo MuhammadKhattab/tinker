@@ -14,6 +14,8 @@ import tinker.view.fish.combo.DrinksComboBox;
 import tinker.view.fish.combo.NationalitiesComboBox;
 import tinker.view.fish.combo.PetsComboBox;
 import tinker.view.mi.MiButton;
+import tinker.view.mi.MiCheckBox;
+import tinker.view.mi.MiColors;
 import tinker.view.mi.MiLabel;
 import tinker.view.mi.WindowDestroyer;
 
@@ -31,6 +33,9 @@ public class FishView extends JFrame {
 
 	private JPanel buttons;
 	private JPanel table;
+	private JPanel checklist;
+
+	private MiCheckBox checkbox;
 
 	private NationalitiesComboBox nat1;
 	private NationalitiesComboBox nat2;
@@ -70,19 +75,31 @@ public class FishView extends JFrame {
 		addWindowListener(new WindowDestroyer());
 		setLayout(new BorderLayout());
 
-		Color buttonsbg = new Color(38, 77, 115);
+		MiColors color = new MiColors();
 		Color worldbg = new Color(25, 51, 77);
 		setBackground(worldbg);
 
 		table = new JPanel(new GridLayout(0, 6));
 		table.add(new MiLabel(""));
-		table.add(new MiLabel("House #1"));
-		table.add(new MiLabel("House #2"));
-		table.add(new MiLabel("House #3"));
-		table.add(new MiLabel("House #4"));
-		table.add(new MiLabel("House #5"));
+		MiLabel house = new MiLabel("House #1");
+		house.setIcon(new ImageIcon("resources/images/fish/house.png"));
+		table.add(house);
+		house = new MiLabel("House #2");
+		house.setIcon(new ImageIcon("resources/images/fish/house.png"));
+		table.add(house);
+		house = new MiLabel("House #3");
+		house.setIcon(new ImageIcon("resources/images/fish/house.png"));
+		table.add(house);
+		house = new MiLabel("House #4");
+		house.setIcon(new ImageIcon("resources/images/fish/house.png"));
+		table.add(house);
+		house = new MiLabel("House #5");
+		house.setIcon(new ImageIcon("resources/images/fish/house.png"));
+		table.add(house);
 
-		table.add(new MiLabel("Nationalities"));
+		MiLabel nats = new MiLabel("Nationalities");
+		nats.setIcon(new ImageIcon("resources/images/fish/world.png"));
+		table.add(nats);
 		nat1 = new NationalitiesComboBox();
 		table.add(nat1);
 		nat2 = new NationalitiesComboBox();
@@ -94,7 +111,9 @@ public class FishView extends JFrame {
 		nat5 = new NationalitiesComboBox();
 		table.add(nat5);
 
-		table.add(new MiLabel("Colors"));
+		MiLabel colors = new MiLabel("Colors");
+		colors.setIcon(new ImageIcon("resources/images/fish/colors.png"));
+		table.add(colors);
 		colors1 = new ColorsComboBox();
 		table.add(colors1);
 		colors2 = new ColorsComboBox();
@@ -106,7 +125,9 @@ public class FishView extends JFrame {
 		colors5 = new ColorsComboBox();
 		table.add(colors5);
 
-		table.add(new MiLabel("Beverages"));
+		MiLabel bev = new MiLabel("Beverages");
+		bev.setIcon(new ImageIcon("resources/images/fish/mug.png"));
+		table.add(bev);
 		drinks1 = new DrinksComboBox();
 		table.add(drinks1);
 		drinks2 = new DrinksComboBox();
@@ -118,7 +139,9 @@ public class FishView extends JFrame {
 		drinks5 = new DrinksComboBox();
 		table.add(drinks5);
 
-		table.add(new MiLabel("Pets"));
+		MiLabel pets = new MiLabel("Pets");
+		pets.setIcon(new ImageIcon("resources/images/fish/bird.png"));
+		table.add(pets);
 		pets1 = new PetsComboBox();
 		table.add(pets1);
 		pets2 = new PetsComboBox();
@@ -130,7 +153,9 @@ public class FishView extends JFrame {
 		pets5 = new PetsComboBox();
 		table.add(pets5);
 
-		table.add(new MiLabel("Cigars"));
+		MiLabel cigars = new MiLabel("Cigars");
+		cigars.setIcon(new ImageIcon("resources/images/fish/smoke.png"));
+		table.add(cigars);
 		cigars1 = new CigarsComboBox();
 		table.add(cigars1);
 		cigars2 = new CigarsComboBox();
@@ -142,22 +167,27 @@ public class FishView extends JFrame {
 		cigars5 = new CigarsComboBox();
 		table.add(cigars5);
 
-		table.setBackground(buttonsbg);
+		table.setBackground(color.getBackground());
 
 		house1 = new MiButton("House #1");
 		house1.setName("house1");
+		house1.setIcon(new ImageIcon("resources/images/fish/fish.png"));
 
 		house2 = new MiButton("House #2");
 		house2.setName("house2");
+		house2.setIcon(new ImageIcon("resources/images/fish/fish.png"));
 
 		house3 = new MiButton("House #3");
 		house3.setName("house3");
+		house3.setIcon(new ImageIcon("resources/images/fish/fish.png"));
 
 		house4 = new MiButton("House #4");
 		house4.setName("house4");
+		house4.setIcon(new ImageIcon("resources/images/fish/fish.png"));
 
 		house5 = new MiButton("House #5");
 		house5.setName("house5");
+		house5.setIcon(new ImageIcon("resources/images/fish/fish.png"));
 
 		back = new MiButton("Back");
 		back.setName("back");
@@ -167,7 +197,7 @@ public class FishView extends JFrame {
 		solve.setName("solve");
 		solve.setIcon(new ImageIcon("resources/images/general/solve.png"));
 
-		info = new MiButton("Available Information");
+		info = new MiButton("Information");
 		info.setName("info");
 		info.setIcon(new ImageIcon("resources/images/general/info.png"));
 
@@ -184,9 +214,47 @@ public class FishView extends JFrame {
 		buttons.add(solve);
 		buttons.add(back);
 
-		add(table, BorderLayout.CENTER);
-		add(buttons, BorderLayout.SOUTH);
+		checklist = new JPanel(new GridLayout(0, 1));
+		checklist.setBackground(color.getBackground());
 
+		checkbox = new MiCheckBox("The Brit lives in the red house.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The Swede has a dog.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The Dane drinks tea.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The green house is on the left of the white house.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The green house's owner drinks coffee.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The person who smokes Pall Mall has a bird.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The owner of The yellow house smokes Dunhill.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The man living in the center house drinks milk.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The Norwegian lives in the first house.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The man who smokes blends lives next to the one who keeps a cat.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The man who has a horse lives next to the man who smokes Dunhill.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The owner who smokes BlueMaster drinks beer.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The German smokes Prince.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The Norwegian lives next to the blue house.");
+		checklist.add(checkbox);
+		checkbox = new MiCheckBox("The man who smokes blend has a neighbor who drinks water.");
+		checklist.add(checkbox);
+
+		JPanel all = new JPanel(new BorderLayout());
+		all.setBackground(color.getBackground());
+		all.add(table, BorderLayout.CENTER);
+		all.add(buttons, BorderLayout.SOUTH);
+
+		add(checklist, BorderLayout.EAST);
+		add(all, BorderLayout.CENTER);
 		setVisible(true);
 	}
 

@@ -87,7 +87,7 @@ public class BridgeView extends JFrame {
 
 		cross = new MiButton("Cross");
 		cross.setName("cross");
-		cross.setIcon(new ImageIcon("resources/images/general/cross.png"));
+		cross.setIcon(new ImageIcon("resources/images/general/timer.png"));
 
 		back = new MiButton("Back");
 		back.setName("back");
@@ -159,7 +159,7 @@ public class BridgeView extends JFrame {
 
 		passedTime = new MiLabel("Passed Time: 0/17");
 		passedTime.setForeground(buttonsfg);
-
+		passedTime.setIcon(new ImageIcon("resources/images/general/timer.png"));
 		chosen1Icon = new MiLabel("Chosen #1");
 		chosen1Icon.setForeground(buttonsfg);
 

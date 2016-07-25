@@ -12,7 +12,7 @@ public class SolutionView extends JFrame {
 
 	public SolutionView() {
 		super("Tinker");
-		setBounds(50, 50, 550, 500);
+		setBounds(50, 50, 550, 150);
 		setLayout(new GridLayout(1, 0));
 
 		Color buttonsfg = new Color(230, 255, 230);
@@ -33,5 +33,5 @@ public class SolutionView extends JFrame {
 		add(texto);
 		setVisible(true);
 	}
-
+	
 }
