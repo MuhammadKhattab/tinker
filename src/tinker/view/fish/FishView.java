@@ -75,8 +75,7 @@ public class FishView extends JFrame {
 		setLayout(new BorderLayout());
 
 		MiColors color = new MiColors();
-		Color worldbg = new Color(25, 51, 77);
-		setBackground(worldbg);
+		setBackground(color.getDarkBackground());
 
 		table = new JPanel(new GridLayout(0, 6));
 		table.add(new MiLabel(""));
@@ -387,5 +386,5 @@ public class FishView extends JFrame {
 	public CigarsComboBox getCigars5() {
 		return cigars5;
 	}
-
+	
 }

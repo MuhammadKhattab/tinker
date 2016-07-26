@@ -10,7 +10,7 @@ public class DrinksComboBox extends JComboBox<String> {
 	public DrinksComboBox() {
 		super(new String[] { "Milk", "Water", "Beer", "Coffee", "Tea" });
 		MiColors colors = new MiColors();
-		setBackground(colors.getGrey());
+		setBackground(colors.getGrey2());
 		setForeground(colors.getForeground());
 	}
 

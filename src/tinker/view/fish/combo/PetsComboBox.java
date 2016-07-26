@@ -10,7 +10,7 @@ public class PetsComboBox extends JComboBox<String> {
 	public PetsComboBox() {
 		super(new String[] { "Dog", "Cat", "Horse", "Fish", "Bird" });
 		MiColors colors = new MiColors();
-		setBackground(colors.getGreen());
+		setBackground(colors.getGrey1());
 		setForeground(colors.getForeground());
 	}
 

@@ -10,7 +10,7 @@ public class CigarsComboBox extends JComboBox<String> {
 	public CigarsComboBox() {
 		super(new String[] { "Prince", "Pall Mall", "Blends", "Dunhill", "BlueMaster" });
 		MiColors colors = new MiColors();
-		setBackground(colors.getOil());
+		setBackground(colors.getGrey());
 		setForeground(colors.getForeground());
 	}
 

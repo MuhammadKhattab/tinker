@@ -10,7 +10,7 @@ public class ColorsComboBox extends JComboBox<String> {
 	public ColorsComboBox() {
 		super(new String[] { "Red", "Green", "White", "Yellow", "Blue" });
 		MiColors colors = new MiColors();
-		setBackground(colors.getRed());
+		setBackground(colors.getPurple1());
 		setForeground(colors.getForeground());
 	}
 

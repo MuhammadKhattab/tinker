@@ -17,6 +17,7 @@ import tinker.model.bridge.character.Turtle;
 import tinker.model.bridge.game.Bridge;
 import tinker.model.bridge.game.BridgeEvent;
 import tinker.view.mi.MiButton;
+import tinker.view.mi.MiColors;
 import tinker.view.mi.MiLabel;
 import tinker.view.mi.WindowDestroyer;
 
@@ -66,8 +67,6 @@ public class BridgeView extends JFrame {
 		setLayout(new BorderLayout());
 
 		bridge = new Bridge();
-		Color buttonsfg = new Color(230, 255, 230);
-		Color worldbg = new Color(25, 51, 77);
 
 		flash = new MiButton("1 min to cross");
 		flash.setName("flash");
@@ -121,11 +120,13 @@ public class BridgeView extends JFrame {
 
 		flashSafe = new MiLabel();
 
+		MiColors color = new MiColors();
+		
 		safe = new JPanel(new GridLayout(5, 0));
-		safe.setBackground(worldbg);
+		safe.setBackground(color.getDarkBackground());
 
 		safeSide = new MiLabel("Safe Side");
-		safeSide.setForeground(buttonsfg);
+		safeSide.setForeground(color.getForeground());
 
 		safe.add(safeSide);
 		safe.add(flashSafe);
@@ -134,7 +135,7 @@ public class BridgeView extends JFrame {
 		safe.add(turtleSafe);
 
 		zombie = new JPanel(new GridLayout(5, 0));
-		zombie.setBackground(worldbg);
+		zombie.setBackground(color.getDarkBackground());
 
 		sleepyZombie = new MiLabel(new ImageIcon("resources/images/bridge/sleepy.png"));
 
@@ -146,7 +147,7 @@ public class BridgeView extends JFrame {
 
 		zombieSide = new MiLabel("Danger Side");
 		zombieSide.setIcon(new ImageIcon("resources/images/bridge/light.png"));
-		zombieSide.setForeground(buttonsfg);
+		zombieSide.setForeground(color.getForeground());
 
 		zombie.add(zombieSide);
 		zombie.add(flashZombie);
@@ -155,19 +156,19 @@ public class BridgeView extends JFrame {
 		zombie.add(turtleZombie);
 
 		world = new JPanel(new BorderLayout());
-		world.setBackground(worldbg);
+		world.setBackground(color.getDarkBackground());
 
 		passedTime = new MiLabel("Passed Time: 0/17");
-		passedTime.setForeground(buttonsfg);
+		passedTime.setForeground(color.getForeground());
 		passedTime.setIcon(new ImageIcon("resources/images/general/timer.png"));
 		chosen1Icon = new MiLabel("Chosen #1");
-		chosen1Icon.setForeground(buttonsfg);
+		chosen1Icon.setForeground(color.getForeground());
 
 		chosen2Icon = new MiLabel("Chosen #2");
-		chosen2Icon.setForeground(buttonsfg);
+		chosen2Icon.setForeground(color.getForeground());
 
 		upper = new JPanel(new GridLayout(0, 3));
-		upper.setBackground(worldbg);
+		upper.setBackground(color.getDarkBackground());
 
 		upper.add(passedTime);
 		upper.add(chosen1Icon);
