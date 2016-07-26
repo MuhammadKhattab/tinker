@@ -1,7 +1,6 @@
 package tinker.view.bridge;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -67,6 +66,7 @@ public class BridgeView extends JFrame {
 		setLayout(new BorderLayout());
 
 		bridge = new Bridge();
+		MiColors color = new MiColors();
 
 		flash = new MiButton("1 min to cross");
 		flash.setName("flash");
@@ -101,7 +101,7 @@ public class BridgeView extends JFrame {
 		info.setIcon(new ImageIcon("resources/images/general/info.png"));
 
 		buttons = new JPanel(new GridLayout(0, 4));
-		buttons.setBackground(new Color(25, 51, 77));
+		buttons.setBackground(color.getBackground());
 
 		buttons.add(flash);
 		buttons.add(rabbit);
@@ -120,13 +120,10 @@ public class BridgeView extends JFrame {
 
 		flashSafe = new MiLabel();
 
-		MiColors color = new MiColors();
-		
 		safe = new JPanel(new GridLayout(5, 0));
 		safe.setBackground(color.getDarkBackground());
 
-		safeSide = new MiLabel("Safe Side");
-		safeSide.setForeground(color.getForeground());
+		safeSide = new MiLabel();
 
 		safe.add(safeSide);
 		safe.add(flashSafe);
@@ -145,9 +142,8 @@ public class BridgeView extends JFrame {
 
 		flashZombie = new MiLabel(new ImageIcon("resources/images/bridge/flash.png"));
 
-		zombieSide = new MiLabel("Danger Side");
+		zombieSide = new MiLabel();
 		zombieSide.setIcon(new ImageIcon("resources/images/bridge/light.png"));
-		zombieSide.setForeground(color.getForeground());
 
 		zombie.add(zombieSide);
 		zombie.add(flashZombie);
@@ -159,17 +155,13 @@ public class BridgeView extends JFrame {
 		world.setBackground(color.getDarkBackground());
 
 		passedTime = new MiLabel("Passed Time: 0/17");
-		passedTime.setForeground(color.getForeground());
 		passedTime.setIcon(new ImageIcon("resources/images/general/timer.png"));
 		chosen1Icon = new MiLabel("Chosen #1");
-		chosen1Icon.setForeground(color.getForeground());
 
 		chosen2Icon = new MiLabel("Chosen #2");
-		chosen2Icon.setForeground(color.getForeground());
 
 		upper = new JPanel(new GridLayout(0, 3));
 		upper.setBackground(color.getDarkBackground());
-
 		upper.add(passedTime);
 		upper.add(chosen1Icon);
 		upper.add(chosen2Icon);

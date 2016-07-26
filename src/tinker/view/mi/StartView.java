@@ -29,18 +29,18 @@ public class StartView extends JFrame {
 
 		bridge = new JLabel("BRIDGE RIDDLE", JLabel.CENTER);
 		bridge.setName("bridge");
-		bridge.setIcon(new ImageIcon("resources/images/start/bridge.png"));
+		bridge.setIcon(new ImageIcon("resources/images/bridge/bridge.png"));
 		bridge.setFont(new Font("ariel", Font.PLAIN, 20));
 		bridge.setForeground(color.getForeground());
 
 		fish = new JLabel("EINSTEIN'S RIDDLE", JLabel.CENTER);
 		fish.setName("fish");
-		fish.setIcon(new ImageIcon("resources/images/start/fish.png"));
+		fish.setIcon(new ImageIcon("resources/images/fish/fish.png"));
 		fish.setFont(new Font("ariel", Font.PLAIN, 20));
 		fish.setForeground(color.getForeground());
 
 		pan = new JPanel();
-		pan.setLayout(new GridLayout(6, 0));
+		pan.setLayout(new GridLayout(4, 0));
 		pan.setBackground(color.getDarkBackground());
 		pan.add(bridge);
 		pan.add(fish);

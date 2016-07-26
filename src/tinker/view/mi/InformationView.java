@@ -1,6 +1,5 @@
 package tinker.view.mi;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.TextArea;
@@ -16,16 +15,15 @@ public class InformationView extends JFrame {
 		setLayout(new GridLayout(1, 0));
 
 		MiColors color = new MiColors();
-		Color worldbg = new Color(25, 51, 77);
 
-		setBackground(worldbg);
+		setBackground(color.getDarkBackground());
 
 		TextArea texto = new TextArea(info);
 
 		texto.setFont(new Font("ariel", Font.PLAIN, 16));
 
 		texto.setEditable(false);
-		texto.setBackground(color.getBackground());
+		texto.setBackground(color.getDarkBackground());
 		texto.setForeground(color.getForeground());
 
 		add(texto);
