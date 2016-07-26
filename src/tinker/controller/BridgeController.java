@@ -1,6 +1,5 @@
 package tinker.controller;
 
-import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -11,16 +10,25 @@ import tinker.model.bridge.game.BridgeEvent;
 import tinker.model.bridge.game.BridgeEventType;
 import tinker.model.bridge.game.BridgeListener;
 import tinker.view.bridge.BridgeView;
-import tinker.view.bridge.InformationView;
+import tinker.view.mi.InformationView;
+import tinker.view.mi.MiColors;
 
 public class BridgeController implements MouseListener, BridgeListener {
 
 	private BridgeView bridgeView;
+	private InformationView info;
+	private MiColors color;
 
 	public BridgeController() {
 		bridgeView = new BridgeView();
-		bridgeView.getBridge().setListener(this);
+		info = new InformationView(
+				" All you have to do is cross with these 4 characters from danger side to safe side.\n"
+						+ " - You can cross with max 2 at a time\n"
+						+ " - Only the side that has the flash light can cross\n"
+						+ " - Every character takes different amout of time to cross\n"
+						+ " - They cross with the speed of the slowest\n" + " - You have to cross within 17 mins\n");
 
+		bridgeView.getBridge().setListener(this);
 		bridgeView.getFlash().addMouseListener(this);
 		bridgeView.getRabbit().addMouseListener(this);
 		bridgeView.getSleepy().addMouseListener(this);
@@ -29,6 +37,8 @@ public class BridgeController implements MouseListener, BridgeListener {
 		bridgeView.getBack().addMouseListener(this);
 		bridgeView.getSolve().addMouseListener(this);
 		bridgeView.getInfo().addMouseListener(this);
+
+		color = new MiColors();
 	}
 
 	@Override
@@ -50,7 +60,7 @@ public class BridgeController implements MouseListener, BridgeListener {
 			} else if (((JButton) e.getSource()).getName().equals("solve")) {
 				bridgeView.getBridge().solve();
 			} else if (((JButton) e.getSource()).getName().equals("info")) {
-				new InformationView();
+				info.setVisible(true);
 			}
 		}
 
@@ -68,12 +78,12 @@ public class BridgeController implements MouseListener, BridgeListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		e.getComponent().setForeground(new Color(0, 153, 115));
+		e.getComponent().setForeground(color.getHover());
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		e.getComponent().setForeground(new Color(230, 255, 230));
+		e.getComponent().setForeground(color.getForeground());
 	}
 
 	@Override

@@ -24,7 +24,7 @@ import tinker.view.mi.WindowDestroyer;
 public class BridgeView extends JFrame {
 
 	private Bridge bridge;
-
+	
 	private MiButton flash;
 	private MiButton rabbit;
 	private MiButton sleepy;

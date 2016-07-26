@@ -7,15 +7,26 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import tinker.view.fish.FishView;
-import tinker.view.fish.InformationView;
-import tinker.view.fish.SolutionView;
+import tinker.view.mi.InformationView;
+import tinker.view.mi.MiColors;
 
 public class FishController implements MouseListener {
 
 	private FishView fishView;
+	private InformationView info;
+	private MiColors color;
 
 	public FishController() {
 		fishView = new FishView();
+
+		info = new InformationView(" There are 5 houses in five different colors.\n"
+				+ " In each house lives a person with a different nationality.\n"
+				+ " These five owners drink a certain type of beverage, smoke a certain brand of cigar and keep a certain pet.\n"
+				+ " No owners have the same pet, smoke the same brand of cigar or drink the same beverage.\n"
+				+ " Use the information to the right to decide: Who owns the fish?\n\n"
+				+ " Note: the checkboxes on the right will not affect the solution and they are there\n"
+				+ "  only to help in solving the puzzle.\n\n" + " These are links for the solution if you failed:\n"
+				+ " https://www.youtube.com/watch?v=1rDVz_Fb6HQ\n" + " https://udel.edu/~os/riddle-solution.html\n");
 
 		fishView.getHouse1().addMouseListener(this);
 		fishView.getHouse2().addMouseListener(this);
@@ -23,9 +34,9 @@ public class FishController implements MouseListener {
 		fishView.getHouse4().addMouseListener(this);
 		fishView.getHouse5().addMouseListener(this);
 		fishView.getBack().addMouseListener(this);
-		fishView.getSolve().addMouseListener(this);
 		fishView.getInfo().addMouseListener(this);
 
+		color = new MiColors();
 	}
 
 	@Override
@@ -33,10 +44,8 @@ public class FishController implements MouseListener {
 		if (e.getComponent() instanceof JButton) {
 			if (((JButton) e.getSource()).getName().equals("back")) {
 				back();
-			} else if (((JButton) e.getSource()).getName().equals("solve")) {
-				new SolutionView();
 			} else if (((JButton) e.getSource()).getName().equals("info")) {
-				new InformationView();
+				info.setVisible(true);
 			} else if (((JButton) e.getSource()).getName().equals("house1")) {
 				wrong();
 			} else if (((JButton) e.getSource()).getName().equals("house2")) {
@@ -105,11 +114,13 @@ public class FishController implements MouseListener {
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent arg0) {
+	public void mouseEntered(MouseEvent e) {
+		e.getComponent().setForeground(color.getHover());
 	}
 
 	@Override
-	public void mouseExited(MouseEvent arg0) {
+	public void mouseExited(MouseEvent e) {
+		e.getComponent().setForeground(color.getForeground());
 	}
 
 	@Override

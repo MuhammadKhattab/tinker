@@ -11,6 +11,8 @@ public class MiColors {
 	private Color oil;
 	private Color grey;
 	private Color purple;
+	private Color hover;
+	private Color darkBackground;
 
 	public MiColors() {
 		foreground = new Color(230, 255, 230);
@@ -20,6 +22,16 @@ public class MiColors {
 		grey = new Color(77, 77, 77);
 		purple = new Color(102, 0, 51);
 		green = new Color(45, 134, 89);
+		hover = new Color(255, 191, 128);
+		darkBackground = new Color(0, 33, 51);
+	}
+
+	public Color getDarkBackground() {
+		return darkBackground;
+	}
+
+	public Color getHover() {
+		return hover;
 	}
 
 	public Color getForeground() {

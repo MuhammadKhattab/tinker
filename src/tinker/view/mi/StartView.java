@@ -1,11 +1,13 @@
 package tinker.view.mi;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class StartView extends JFrame {
@@ -23,21 +25,23 @@ public class StartView extends JFrame {
 		addWindowListener(new WindowDestroyer());
 		setLayout(new BorderLayout());
 
+		MiColors color = new MiColors();
+
 		bridge = new JLabel("BRIDGE RIDDLE", JLabel.CENTER);
 		bridge.setName("bridge");
-		bridge.setIcon(new ImageIcon("resources/images/bridge.png"));
-		bridge.setFont(new Font("ariel", Font.BOLD, 30));
-		bridge.setForeground(new Color(51, 51, 51));
+		bridge.setIcon(new ImageIcon("resources/images/start/bridge.png"));
+		bridge.setFont(new Font("ariel", Font.PLAIN, 20));
+		bridge.setForeground(color.getForeground());
 
 		fish = new JLabel("EINSTEIN'S RIDDLE", JLabel.CENTER);
 		fish.setName("fish");
-		fish.setIcon(new ImageIcon("resources/images/fish.png"));
-		fish.setFont(new Font("ariel", Font.BOLD, 30));
-		fish.setForeground(new Color(51, 51, 51));
+		fish.setIcon(new ImageIcon("resources/images/start/fish.png"));
+		fish.setFont(new Font("ariel", Font.PLAIN, 20));
+		fish.setForeground(color.getForeground());
 
 		pan = new JPanel();
 		pan.setLayout(new GridLayout(6, 0));
-		pan.setBackground(new Color(163, 194, 194));
+		pan.setBackground(color.getDarkBackground());
 		pan.add(bridge);
 		pan.add(fish);
 

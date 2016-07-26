@@ -23,7 +23,6 @@ import tinker.view.mi.WindowDestroyer;
 public class FishView extends JFrame {
 
 	private MiButton back;
-	private MiButton solve;
 	private MiButton info;
 	private MiButton house1;
 	private MiButton house2;
@@ -193,10 +192,6 @@ public class FishView extends JFrame {
 		back.setName("back");
 		back.setIcon(new ImageIcon("resources/images/general/back.png"));
 
-		solve = new MiButton("Solve it");
-		solve.setName("solve");
-		solve.setIcon(new ImageIcon("resources/images/general/solve.png"));
-
 		info = new MiButton("Information");
 		info.setName("info");
 		info.setIcon(new ImageIcon("resources/images/general/info.png"));
@@ -211,7 +206,6 @@ public class FishView extends JFrame {
 		buttons.add(house5);
 
 		buttons.add(info);
-		buttons.add(solve);
 		buttons.add(back);
 
 		checklist = new JPanel(new GridLayout(0, 1));
@@ -260,10 +254,6 @@ public class FishView extends JFrame {
 
 	public MiButton getBack() {
 		return back;
-	}
-
-	public MiButton getSolve() {
-		return solve;
 	}
 
 	public MiButton getInfo() {
