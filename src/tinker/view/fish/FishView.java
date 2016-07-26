@@ -169,23 +169,23 @@ public class FishView extends JFrame {
 
 		house1 = new MiButton("House #1");
 		house1.setName("house1");
-		house1.setIcon(new ImageIcon("resources/images/fish/fish.png"));
+		house1.setIcon(new ImageIcon("resources/images/general/search.png"));
 
 		house2 = new MiButton("House #2");
 		house2.setName("house2");
-		house2.setIcon(new ImageIcon("resources/images/fish/fish.png"));
+		house2.setIcon(new ImageIcon("resources/images/general/search.png"));
 
 		house3 = new MiButton("House #3");
 		house3.setName("house3");
-		house3.setIcon(new ImageIcon("resources/images/fish/fish.png"));
+		house3.setIcon(new ImageIcon("resources/images/general/search.png"));
 
 		house4 = new MiButton("House #4");
 		house4.setName("house4");
-		house4.setIcon(new ImageIcon("resources/images/fish/fish.png"));
+		house4.setIcon(new ImageIcon("resources/images/general/search.png"));
 
 		house5 = new MiButton("House #5");
 		house5.setName("house5");
-		house5.setIcon(new ImageIcon("resources/images/fish/fish.png"));
+		house5.setIcon(new ImageIcon("resources/images/general/search.png"));
 
 		back = new MiButton("Back");
 		back.setName("back");
@@ -386,5 +386,5 @@ public class FishView extends JFrame {
 	public CigarsComboBox getCigars5() {
 		return cigars5;
 	}
-	
+
 }

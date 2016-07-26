@@ -24,7 +24,7 @@ import tinker.view.mi.WindowDestroyer;
 public class BridgeView extends JFrame {
 
 	private Bridge bridge;
-	
+
 	private MiButton flash;
 	private MiButton rabbit;
 	private MiButton sleepy;
@@ -120,18 +120,21 @@ public class BridgeView extends JFrame {
 
 		flashSafe = new MiLabel();
 
-		safe = new JPanel(new GridLayout(5, 0));
+		safe = new JPanel(new GridLayout(6, 0));
 		safe.setBackground(color.getDarkBackground());
 
 		safeSide = new MiLabel();
+		MiLabel so = new MiLabel("Safe Side");
+		so.setIcon(new ImageIcon("resources/images/bridge/safe.png"));
 
 		safe.add(safeSide);
+		safe.add(so);
 		safe.add(flashSafe);
 		safe.add(rabbitSafe);
 		safe.add(sleepySafe);
 		safe.add(turtleSafe);
 
-		zombie = new JPanel(new GridLayout(5, 0));
+		zombie = new JPanel(new GridLayout(6, 0));
 		zombie.setBackground(color.getDarkBackground());
 
 		sleepyZombie = new MiLabel(new ImageIcon("resources/images/bridge/sleepy.png"));
@@ -145,7 +148,11 @@ public class BridgeView extends JFrame {
 		zombieSide = new MiLabel();
 		zombieSide.setIcon(new ImageIcon("resources/images/bridge/light.png"));
 
+		MiLabel zo = new MiLabel("Danger Side");
+		zo.setIcon(new ImageIcon("resources/images/bridge/danger.png"));
+		
 		zombie.add(zombieSide);
+		zombie.add(zo);
 		zombie.add(flashZombie);
 		zombie.add(rabbitZombie);
 		zombie.add(sleepyZombie);
